@@ -656,8 +656,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1635080536}
         m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: OpenMap
-        m_Mode: 3
+        m_MethodName: NextMap
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

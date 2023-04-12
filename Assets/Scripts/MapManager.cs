@@ -5,25 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MapManager : MonoBehaviour
 {
-    private static int _currentMapIdx = 0;
-
-    private void Start()
-    {
-        _currentMapIdx = SceneManager.GetActiveScene().buildIndex;
-    }
-
     public static void NextMap()
     {
-        _currentMapIdx++;
-        OpenMap(_currentMapIdx);
+        OpenMap(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public static void OpenMap(int mapIdx)
     {
-        if (SceneManager.sceneCount < mapIdx + 1) _currentMapIdx = SceneManager.sceneCount;
-        else if (mapIdx < 1) _currentMapIdx = 0;
-        else _currentMapIdx = mapIdx;
+        if (mapIdx > SceneManager.sceneCountInBuildSettings + 1) mapIdx = SceneManager.GetActiveScene().buildIndex;
+        if (mapIdx < 1) mapIdx = 0;
 
-        SceneManager.LoadScene(_currentMapIdx);
+        SceneManager.LoadScene(mapIdx);
     }
 }
