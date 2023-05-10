@@ -20,7 +20,7 @@ public class IngameUi : MonoBehaviour
     public void UpdateText()
     {
         _numberOfCoinsText.text = "Coins: " + (_numberOfCoins - _numberOfCollectedCoins) + " / " + _numberOfCoins;
-        if (_numberOfCoins == _numberOfCollectedCoins) MapManager.NextMap();
+        if (_numberOfCoins != 0 && _numberOfCoins == _numberOfCollectedCoins) MapManager.NextMap();
         
         _numberOfCollectedCoins++;
     }
